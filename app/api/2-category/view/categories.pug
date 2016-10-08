@@ -1,0 +1,12 @@
+extends /layouts/default.pug
+
+block body
+	.content-section-b
+		.container
+			- var categoryPage = true
+			include /includes/urls
+			include /includes/bread-crumbs
+			ul
+				each rubric in category.rubrics
+					li 
+						a(href=categoryUrl + '/' + rubric.alias) #{rubric.name}

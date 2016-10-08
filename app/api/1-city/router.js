@@ -16,15 +16,14 @@ router.param('city', (req, res, next, city) => {
 router.get('/:city', (req, res, next) => {
     const city = req.params.city;
     const cityDb = db.useDb(city);
-    res.render('404')
-    // cityDb.model('category').find().exec().then(categories => {
-    //     if (categories) {
-    //         const city = categories[0].city.toObject();
-    //         res.render('city', { categories, city });
-    //     } else {
-    //         // TODO return page there aren't any categories in this city
-    //     }
-    // }).catch(next);
+    cityDb.model('category').find().exec().then(categories => {
+        if (categories) {
+            const city = categories[0].city.toObject();
+            res.render('city', { categories, city });
+        } else {
+            // TODO return page there aren't any categories in this city
+        }
+    }).catch(next);
 });
 
 module.exports = router;
