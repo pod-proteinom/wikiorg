@@ -3,7 +3,7 @@ const conf = require('config');
 const join = require('path').join;
 
 const middlewares = [
-    'middlewares/logRequest'
+    'middlewares/log-req'
 ];
 
 const api = [
@@ -12,6 +12,6 @@ const api = [
 
 const handlers = middlewares.concat(api);
 
-exports.importHandler = require('./lib/importHandler');
+exports.importHandler = require('./lib/import-handler');
 
 exports.handlers = handlers;
