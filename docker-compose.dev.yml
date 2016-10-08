@@ -1,0 +1,16 @@
+version: '2'
+services: 
+  nginx:
+    # volumes:
+    #   - ./nginx/nginx-dev.conf:/etc/nginx/nginx-env-specific.conf
+    depends_on:
+      - app
+  app:
+    environment:
+      - NODE_ENV=development
+    env_file:
+      db/auth/dev.env
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - db

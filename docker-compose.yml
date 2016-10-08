@@ -1,0 +1,29 @@
+version: '2'
+services: 
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./logs/nginx/:/etc/nginx/logs
+  app:
+    container_name: app
+    build: .
+    restart: always
+    ports: 
+      - "4000:4000"
+  db:
+    container_name: db
+    build: ./db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - data:/data/db
+      - ./db/config/mongod.conf:/etc/mongod.conf
+volumes:
+  data:
+    external: true

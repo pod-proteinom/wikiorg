@@ -1,0 +1,50 @@
+language: node_js
+node_js:
+- '6'
+
+sudo: required
+dist: trusty
+
+env:
+  global:
+  - secure: HVWrpr67ZDvc/PO//K0hyGabT4xOObxTmnrw7okT19dhqhSx4gGtTVYQf+VoMmUFu9PjDUdK6tY31xcaBcgzR3F+7PYsCOPL1S/qUwvK/RI33FMiRIlVgvMk3YyTuYG8I5+iefIBGau7v9XEfgFVIwtLAUKd7yc2JLEygaDKeQAGG7NiHOiCjPo6Jfh5XXXBUm4sAhQw92JNwo3/Duvoed7dhZwalZXbWq73bAPm/FWu70V7Zqla9cxwPXVmNZP8PjZFvMDZx0oYNFaW1sMtdcy4xi67P/XAj0BUINbyiol0kzikooo+XUgVttoc6iH9RgknHZw4HXJwlrbMS5Itp29fczLqbNRdy51NWGZ2ShGPkNzNivgKqI3X3rhFXLMS0FoGJ/NEMuZigcid78TBWEmWkM/TDwGcXSZgm3yXgebS/8Ji9DT7nQFQ9QDPPKbO63EB42ye9nIM0LG5YdN+hak0yMI4j69kDdhJBgFLfjRrBZky5g7w/RoRE6z9c+Jd/BVB/RgqMw2pPX+yPxgBA9ZZraJzbn/qaekn5IgsmN1LXMDlkkTubjs0+P+0p8i13MXxPsfC4qheIq+34Kypm89IgH4mD1WTUNhjqQZXvCgdqObAap9+yniP3xXwTvNmchzd2au5/zltSi+49bzvVpxiEoa/o4ljQ/1D+qhebRM=
+  - secure: EfQDJOVpvAHc5szOIwaJBG7nufKvY2XmD+3S/X6NdAb6Jioa5IpJ0y9GgqCqC6ICaD6hfNqFyuaXUjqsA/kXfhFA4h6Dx1bYeoJhIjJzKq7Rc1XSFDPeQUh7hnI/ai4yseUK4HM1FvPDWt4vXwpk4zZ3hpHxguRBQGDv1imThFOgTbr/1lAciIgcRxFpzzfSvAlQwyn1GE5Yy2ee8sS2pfkY5HNIYiVOQBlKx1ygk4FiKANdhIlOeD+kz7u2ROykrtmQpIj076FyixpmChLr9vPOiophw/pRkqTnSzwSdRtm1Ett+OSWffkRzjdV54iTeW3XmFychyRvaQ2TZi3Ra8PSu34m90ziLrO0y7q2pfEvQDPJ/B3Q8dq3sOAvED6KTw+lQu4ETNx9dzmHrC44lo0hIq+LtJ/xFcEPGXNKAAESrsgtKhRE6n0jbOodnGeYe1pe7w2QdeoOUZEY0Z6/XEYL0Rr1BcqIb73iIJUinlQAVr6dYtGZ5TLmFbR1YRm5c0zAeh8Qk7CTQRtiI4brl1Oj7zFsxuN0kOmf8iO6l5cXdx/g3aS6XtaTK85cCK7B56j8vAEsQGoZSiWv/RAHAXaU5TK1H9n+hR39ma35dCKOQsDNlgSZhDsNFBRBkYag+mic4uFruUN5Yo7qBS6LLYC46wMbSKnxc0hR305HCfc=
+  - secure: UdT6Fw/icEZei8iUThA26YbIzA7LHMIYQAqsofdSYMlny5zr6ZPKXsDL1OHu8RaKauk7uV/qHCpZEceE6QjTe5JJY/htOltBy13saQK9kML78v9owI+wQQyiQxmqzhWQr4mm+p4AhGbjS9fRQThuR+FZMLCZO3RIWKR6MY5r21XpEbAu+T35jWfPOOuSrPeB4Fj7GU/DAuU6tOLMOeOXHquY0yNo39aFaWJn/Bi9n0UkwMaMaTnwUDtA0kC73aR/vMmP6Y5GC9rdLOAS2vVQPmeF4B/EB3LRzDHGm+K1HC5rct6G4dBwDRRR8YMiw1jV0gszUItj5tp4OU9MB04mHqB2YDInkTIcIaPdfWnTCusy1NyaqMEs131mXtgS7c1jOBWpV1LLhaGfDqg1EETvLmz3sY1X7NcrzNGb4zAe4RKCOP/oI/cdVqhp+EfOQjcge0BC7l9/THx7K+ZcIkBuLTgBPQDt+O0PJ5Cg9a8I8I+gLdMEW7ijqquJknS9N2xiHnBJfWJv8E4t2jpg1V6z3q3juE2XolhKH5BztbsT3jz6Not6e88GwiY3Q/Le9ej+jQpu4MnB4OILajMGlU1GqYmrUhiOgCU846UB+chibsGI2AoMJIjDyUnEdCc/IZqK6UeOpAUZMifPM+TYzScw7P6Fz1G/ZAsHQaowJ5j7Vy4=
+  - COMMIT=${TRAVIS_COMMIT::8}
+
+install:
+- curl -sSL "https://get.docker.com/gpg" | sudo -E apt-key add -
+- echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" |
+  sudo tee -a /etc/apt/sources.list
+- sudo apt-get update
+- sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine
+- sudo pip install docker-compose
+
+before_script:
+- chmod +x ./volume/init.sh
+- "./volume/init.sh test test"
+- docker-compose -f docker-compose.yml -f docker-compose.test.yml up --build -d
+- sleep 5
+
+script:
+- docker exec --privileged -it app npm test
+
+after_script:
+- docker-compose down
+- docker volume rm $(docker volume ls -qf dangling=true)
+
+after_success:
+- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
+- export REPO_APP=alta0815/wikiorg
+- export REPO_DB=alta0815/mongo
+- export REPO_NGINX=alta0815/nginx
+- export TAG=latest
+- docker build -t $REPO_APP:$COMMIT .
+- docker tag $REPO_APP:$COMMIT $REPO_APP:$TAG
+- docker push $REPO_APP
+- docker build -t $REPO_DB:$COMMIT ./db
+- docker tag $REPO_DB:$COMMIT $REPO_DB:$TAG
+- docker push $REPO_DB
+- docker build -t $REPO_NGINX:$COMMIT ./nginx
+- docker tag $REPO_NGINX:$COMMIT $REPO_NGINX:$TAG
+- docker push $REPO_NGINX
