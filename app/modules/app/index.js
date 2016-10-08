@@ -11,7 +11,7 @@ const app = express();
 
 app.set('view engine', 'pug');
 app.set('views', viewDirs);
-// app.locals.basedir = join(conf.server.rootDir, 'views');
+app.locals.basedir = join(conf.server.srcDir, 'views');
 
 handlers.forEach(handler => importHandler(handler, app));
 
