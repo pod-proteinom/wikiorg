@@ -1,0 +1,18 @@
+if city
+	- var cityName = city.name
+	- var cityUrl = '/' +  city.alias
+	- var cityTitle = 'Организации в городе ' + cityName
+if category
+	- var categoryName = category.name
+	- var categoryUrl = cityUrl + '/' + category.alias
+	- var categoryTitle = categoryName + ' в городе ' + cityName
+if rubric
+	- var rubricName = rubric.name
+	- var rubricUrl = categoryUrl + '/' + rubric.alias;
+	- var rubricTitle = rubricName + ' в городе ' + cityName
+if org
+	- var orgName = org.name
+	- var orgUrl = rubricUrl + '/' + org.alias
+	- var orgTitle = orgName + ' в городе ' + cityName
+if review
+	- var reviewName = review.name
