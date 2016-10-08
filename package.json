@@ -1,5 +1,5 @@
 {
-  "name": "engL",
+  "name": "wikiorg",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pod-proteinom/engL.git"
+    "url": "git+https://github.com/pod-proteinom/wikiorg.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pod-proteinom/engL/issues"
+    "url": "https://github.com/pod-proteinom/wikiorg/issues"
   },
-  "homepage": "https://github.com/pod-proteinom/engL#readme",
+  "homepage": "https://github.com/pod-proteinom/wikiorg#readme",
   "dependencies": {
     "bluebird": "^3.4.6",
     "config": "^1.21.0",
