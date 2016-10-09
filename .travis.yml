@@ -36,12 +36,12 @@ after_success:
 - export REPO_DB=alta0815/mongo
 - export REPO_NGINX=alta0815/nginx
 - export TAG=latest
-- docker build -t $REPO_APP:$COMMIT .
-- docker tag $REPO_APP:$COMMIT $REPO_APP:$TAG
-- docker push $REPO_APP
-- docker build -t $REPO_DB:$COMMIT ./db
-- docker tag $REPO_DB:$COMMIT $REPO_DB:$TAG
-- docker push $REPO_DB
-- docker build -t $REPO_NGINX:$COMMIT ./nginx
-- docker tag $REPO_NGINX:$COMMIT $REPO_NGINX:$TAG
-- docker push $REPO_NGINX
+- sudo docker build -t $REPO_APP:$COMMIT .
+- sudo docker tag $REPO_APP:$COMMIT $REPO_APP:$TAG
+- sudo docker push $REPO_APP
+- sudo docker build -t $REPO_DB:$COMMIT ./db
+- sudo docker tag $REPO_DB:$COMMIT $REPO_DB:$TAG
+- sudo docker push $REPO_DB
+- sudo docker build -t $REPO_NGINX:$COMMIT ./nginx
+- sudo docker tag $REPO_NGINX:$COMMIT $REPO_NGINX:$TAG
+- sudo docker push $REPO_NGINX
