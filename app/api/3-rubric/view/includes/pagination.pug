@@ -1,0 +1,7 @@
+ul.pagination.text-center
+	each page in pages
+		li(class=currentPage === page ? "active" : "")
+			if page == 1
+				a(href=rubricUrl, class=isActivePage) #{page}
+			else
+				a(href=rubricUrl + '/' + page) #{page}

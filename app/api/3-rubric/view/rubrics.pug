@@ -1,0 +1,13 @@
+extends /layouts/default.pug
+
+block body
+	.content-section-b
+		.container
+			- var rubricPage = true
+			include /includes/urls
+			include /includes/bread-crumbs
+			ul
+				each org in orgs
+					li 
+						a(href=rubricUrl + '/' + org.alias) #{org.name}
+			include includes/pagination
