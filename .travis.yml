@@ -31,7 +31,7 @@ after_script:
 - docker volume rm $(docker volume ls -qf dangling=true)
 
 after_success:
-- docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+- sudo docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 - export REPO_APP=alta0815/wikiorg
 - export REPO_DB=alta0815/mongo
 - export REPO_NGINX=alta0815/nginx
