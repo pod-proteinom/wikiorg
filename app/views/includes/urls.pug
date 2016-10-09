@@ -1,10 +1,10 @@
 if city
 	- var cityName = city.name
-	- var cityUrl = '/' +  city.alias
+	- var cityUrl = '/'
 	- var cityTitle = 'Организации в городе ' + cityName
 if category
 	- var categoryName = category.name
-	- var categoryUrl = cityUrl + '/' + category.alias
+	- var categoryUrl = category.alias
 	- var categoryTitle = categoryName + ' в городе ' + cityName
 if rubric
 	- var rubricName = rubric.name
