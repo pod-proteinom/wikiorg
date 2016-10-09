@@ -2,13 +2,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// const rubricSchema = require('rubric').rubricSchema;
 const citySchema = require('api/1-city').citySchema;
+const rubricSchema = require('api/3-rubric').rubricSchema;
 
 const categorySchema = new Schema({
     org_count: Number,
     region_id: String,
-    // rubrics: [rubricSchema],
+    rubrics: [rubricSchema],
     alias: String,
     branch_count: Number,
     _id: String,
