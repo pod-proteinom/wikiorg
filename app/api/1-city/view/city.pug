@@ -5,16 +5,7 @@ block body
 		.container
 			include /includes/urls
 
-			//- ul
-			//- 	each category in categories
-			//- 		li 
-			//- 			a(href='/' + category.city_alias + '/' + category.alias) #{category.name}
-			.row.row-centered
+			ul
 				each category in categories
-					.col-md-2
-						a.element(href=city.alias + '/' + category.alias)
-							.icon
-								span.fa-stack.fa-3x
-									i.fa.fa-circle-thin.fa-stack-2x
-									i.fa.fa-lock.fa-stack-1x
-							h5 #{category.name}
+					li 
+						a(href='/' + category.city_alias + '/' + category.alias) #{category.name}
