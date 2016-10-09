@@ -1,10 +1,12 @@
 extends /layouts/default.pug
-
+block title
+	// TODO move titles to title.pug
+	include /includes/urls
+	title #{cityTitle}
 block body
+	include /includes/urls
 	.content-section-b
 		.container
-			include /includes/urls
-
 			ul
 				each category in categories
 					li 
