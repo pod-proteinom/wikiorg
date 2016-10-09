@@ -10,6 +10,7 @@ const api = [
 	'api/0-home',
 	'api/1-city',
 	'api/2-category',
+	'api/3-rubric',
 	'api/6-errors'
 ];
 
