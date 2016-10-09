@@ -1,9 +1,0 @@
-extends /layouts/default.pug
-
-block body
-	.content-section-b
-		.container
-			ul
-				each city in cities
-					li 
-						a(href='/' + city.alias) #{city.name}
