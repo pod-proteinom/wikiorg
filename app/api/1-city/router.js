@@ -1,20 +1,12 @@
 'use strict';
 
-const express = require('express');
-const router = express.Router();
-
 const db = require('modules/connect-db');
+const router = require('modules/app-router');
 const citiesList = require('modules/city-list');
-
-router.param('city', (req, res, next, city) => {
-    if (!citiesList.includes(req.params.city)) {
-    	return next(new Error("Unfortunately our service coudn't provide any info about this city"));
-    }
-    return next();
-});
 
 router.get('/:city', (req, res, next) => {
     const city = req.params.city;
+    // console.log(city)
     const cityDb = db.useDb(city);
     cityDb.model('category').find().exec().then(categories => {
         if (categories) {

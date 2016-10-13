@@ -3,9 +3,9 @@
 const express = require('express');
 const router = express.Router();
 
-// const db = require('dbConnect');
-// const citiesList = require('citiesList');
-// const categoriesList = require('categoriesList');
+// const db = require('connect-db');
+// const citiesList = require('city-list');
+// const categoriesList = require('category-list');
 
 // const Promise = require("bluebird");
 // const generatePagination = require('./lib/pagination');

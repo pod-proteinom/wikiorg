@@ -1,18 +1,9 @@
 'use strict';
 
-const express = require('express');
-const router = express.Router();
-
 const db = require('modules/connect-db');
+const router = require('modules/app-router');
 const citiesList = require('modules/city-list');
 const categoriesList = require('modules/category-list');
-
-router.param('category', (req, res, next, category) => {
-    if (!categoriesList.includes(req.params.category)) {
-        return next(new Error("Unfortunately our service coudn't provide any info about this category"));
-    }
-    return next();
-});
 
 router.get('/:city/:category', (req, res, next) => {
     const cityAlias = req.params.city;
