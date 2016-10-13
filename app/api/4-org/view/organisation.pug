@@ -1,0 +1,29 @@
+extends /layouts/default.pug
+block title
+	title #{org.name} на улице #{org.street} в городе #{city.name} - адрес, график работы, телефон, контактная информация
+block body
+	.content-section-b
+		.container
+			- var orgPage = true
+			include /includes/urls
+			include /includes/bread-crumbs
+
+			h1 #{orgName} на улице #{org.street} г. #{cityName}
+
+			.vcard 
+				a.fn.org.url(href="#") #{org.name_ex.primary}
+				span.email
+				div
+					each rubr in org.rubrics
+						if rubr.parent_id != null
+							span.category #{rubr.name}
+				.adr
+					span.locality #{cityName}
+					span.street-address #{org.address_name}
+					.country-name Россия
+				.tel
+					span.type 
+					span.value 
+			.geo GEO:
+				span.latitude #{org.point.lat}
+				span.longitude #{org.point.lon}
