@@ -12,6 +12,7 @@ const api = [
 	'api/2-category',
 	'api/3-rubric',
 	'api/4-org',
+	'api/5-review',
 	'api/6-errors'
 ];
 
