@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const logger = require('modules/logger');
 mongoose.set('pluralization', false);
 
+require('mongoose-double')(mongoose);
+
 // use bluebird promises
 mongoose.Promise = require('bluebird');
 
