@@ -4,7 +4,7 @@ if city
 	- var cityTitle = 'Организации в городе ' + cityName
 if category
 	- var categoryName = category.name
-	- var categoryUrl = category.alias
+	- var categoryUrl = cityUrl + category.alias
 	- var categoryTitle = categoryName + ' в городе ' + cityName
 if rubric
 	- var rubricName = rubric.name
