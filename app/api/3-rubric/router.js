@@ -35,8 +35,7 @@ router.get('/:city/:category/:rubric/:page([0-9]*)?', (req, res, next) => {
                 const getCategory = firstOrg.getCategory();
                 const getRubric = firstOrg.getRubric(rubric);
                 const pages = generatePagination(currentPage, pagesCount);
-                console.log(getRubric)
-                console.log(getCategory)
+
                 res.render('rubrics', {
                     orgs,
                     city,

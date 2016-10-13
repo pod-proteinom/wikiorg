@@ -2,11 +2,9 @@
 
 const db = require('modules/connect-db');
 const router = require('modules/app-router');
-const citiesList = require('modules/city-list');
 
 router.get('/:city', (req, res, next) => {
     const city = req.params.city;
-    // console.log(city)
     const cityDb = db.useDb(city);
     cityDb.model('category').find().exec().then(categories => {
         if (categories) {

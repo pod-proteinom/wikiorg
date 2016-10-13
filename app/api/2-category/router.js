@@ -2,8 +2,6 @@
 
 const db = require('modules/connect-db');
 const router = require('modules/app-router');
-const citiesList = require('modules/city-list');
-const categoriesList = require('modules/category-list');
 
 router.get('/:city/:category', (req, res, next) => {
     const cityAlias = req.params.city;
