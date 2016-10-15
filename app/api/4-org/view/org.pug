@@ -6,24 +6,33 @@ block body
 		.container
 			- var orgPage = true
 			include /includes/urls
+
 			include /includes/bread-crumbs
-
-			h1 #{orgName} на улице #{org.street} г. #{cityName}
-
-			.vcard 
-				a.fn.org.url(href="#") #{org.name_ex.primary}
-				span.email
-				div
-					each rubr in org.rubrics
-						if rubr.parent_id != null
-							span.category #{rubr.name}
-				.adr
-					span.locality #{cityName}
-					span.street-address #{org.address_name}
-					.country-name Россия
-				.tel
-					span.type 
-					span.value 
-			.geo GEO:
-				span.latitude #{org.point.lat}
-				span.longitude #{org.point.lon}
+			.col-md-8
+				.panel.panel-default
+					.panel-heading 
+						h1 #{orgName} на улице #{org.street} г. #{cityName}
+					.panel-body
+						p 
+							| Адрес #{org.address.postcode}, #{cityName}, 
+							| #{org.address_name} 
+						p
+							| Расположение: #{org.address_comment}
+						p 
+							| Координаты GPS: 
+							| #{org.point.lat} #{org.point.lon}
+						p 
+							| Уважаемые клиенты #{org.name_ex.primary}, пожалуйста, оставьте свой 
+							a(href= orgUrl + '/reviews', title=orgTitle + ' - отзывы') отзыв
+							|  или задайте вопрос – мы обязательно вам ответим!
+			.col-md-4
+				.panel.panel-info
+					.panel-heading Часы работы
+					.panel-body
+			.col-md-4
+				.panel.panel-info
+					.panel-heading Виды деятельности
+					ul.list-group
+						each rubr in org.rubrics
+							if rubr.parent_id != null
+								li.list-group-item #{rubr.name}
