@@ -1,8 +1,8 @@
 version: '2'
 services: 
   nginx:
-    # volumes:
-    #   - ./nginx/nginx-dev.conf:/etc/nginx/nginx-env-specific.conf
+    volumes:
+      - ./nginx/public/:/var/www/public/
     depends_on:
       - app
   app:
