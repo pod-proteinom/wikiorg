@@ -5,7 +5,7 @@ mixin crumb(name, url, currentPage, title)
 			li
 				a(href=url, title=title) #{name}
 
-ul
+ul.breadcrumb
 	+crumb(cityName, cityUrl, null, cityTitle)
 	+crumb(categoryName, categoryUrl, categoryPage, categoryTitle)
 	+crumb(rubricName, rubricUrl, rubricPage, rubricTitle)
