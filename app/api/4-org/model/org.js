@@ -7,6 +7,7 @@ const citySchema = require('api/1-city').citySchema;
 const rubricSchema = require('api/3-rubric').rubricSchema;
 const reviewSchema = require('api/5-review').reviewSchema;
 const scheduleSchema = require('./schedule');
+const contactSchema = require('./contact');
 
 const categoriesList = require('modules/category-list');
 
@@ -24,7 +25,7 @@ const organisationSchema = new Schema({
 		extension: String
 	},
 	rubrics: [rubricSchema],
-	// contact_groups
+	contact_groups: [[contactSchema]],
 	reviews: [reviewSchema],
 	address_name: String,
 	address: {
