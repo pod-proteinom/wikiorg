@@ -5,7 +5,7 @@ mixin schedule(day, dayAlias)
 			tr
 				td #{day}
 						if workingHours.length == 1
-							td #{hours.from} - #{hours.to}
+							td #{workingHours[0].from} - #{workingHours[0].to}
 						else
 							td
 								each hours in workingHours
