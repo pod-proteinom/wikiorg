@@ -1,0 +1,27 @@
+mixin schedule(day, dayAlias) 
+	if org.schedule[dayAlias]
+		- var workingHours = org.schedule[dayAlias]['working_hours']
+		if workingHours
+			tr
+				td #{day}
+						if workingHours.length == 1
+							td #{hours.from} - #{hours.to}
+						else
+							td
+								each hours in workingHours
+									| #{hours.from} - #{hours.to} 
+	else
+		tr
+			td #{day}
+			td Выходной
+
+.panel.panel-info
+	.panel-heading Часы работы
+	table.table
+		+schedule('Понедельник','Mon')
+		+schedule('Вторник','Tue')
+		+schedule('Среда','Wed')
+		+schedule('Четверг','Thu')
+		+schedule('Пятница','Fri')
+		+schedule('Суббота','Sat')
+		+schedule('Воскресенье','Sun')
