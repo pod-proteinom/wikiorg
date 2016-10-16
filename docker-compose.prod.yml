@@ -1,11 +1,20 @@
 version: '2'
 services: 
   nginx:
+    container_name: nginx
     image: alta0815/nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
     depends_on:
       - app
   app:
+    container_name: app
     image: alta0815/wikiorg
+    restart: always
+    ports: 
+      - "4000:4000"
     environment:
       - NODE_ENV=production
     env_file:
@@ -13,4 +22,13 @@ services:
     depends_on:
       - db
   db:
+    container_name: db
     image: alta0815/mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - data:/data/db
+volumes:
+  data:
+    external: true
