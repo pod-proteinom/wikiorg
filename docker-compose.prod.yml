@@ -1,0 +1,16 @@
+version: '2'
+services: 
+  nginx:
+    image: alta0815/nginx
+    depends_on:
+      - app
+  app:
+    image: alta0815/wikiorg
+    environment:
+      - NODE_ENV=production
+    env_file:
+      db/auth/prod.env
+    depends_on:
+      - db
+  db:
+    image: alta0815/mongo
