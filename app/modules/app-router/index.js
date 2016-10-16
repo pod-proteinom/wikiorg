@@ -6,16 +6,18 @@ const router = express.Router();
 const citiesList = require('modules/city-list');
 const categoriesList = require('modules/category-list');
 
+const ParamsError = require('modules/error');
+
 router.param('city', (req, res, next, city) => {
-    if (!citiesList.includes(req.params.city)) {
-        return next(new Error("Unfortunately our service coudn't provide any info about this city"));
+    if (!citiesList.includes(city)) {
+        return next(new ParamsError(`Couldn't find city ${city}`));
     }
     return next();
 });
 
 router.param('category', (req, res, next, category) => {
-    if (!categoriesList.includes(req.params.category)) {
-        return next(new Error("Unfortunately our service coudn't provide any info about this category"));
+    if (!categoriesList.includes(category)) {
+        return next(new ParamsError(`Couldn't find category ${category}`));
     }
     return next();
 });
