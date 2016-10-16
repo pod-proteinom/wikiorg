@@ -2,9 +2,23 @@ extends /layouts/default.pug
 block title
 	title #{org.name} на улице #{org.street} в городе #{city.name} - отзывы об организации от покупателей и сотрудников
 block body
+	- var revClasses = ['alert alert-danger', 'alert alert-danger', 'alert alert-warning', 'alert alert-info','alert alert-success']
 	.content-section-b
 		.container
 			- var reviewPage = true
 			include /includes/urls
 			include /includes/bread-crumbs
 			h1 #{org.name} на улице #{org.street} г. #{city.name} - отзывы
+			each rev in org.reviews
+				.col-md-6
+					if !rev.rating
+						rev.rating = 5
+					div(class=revClasses[rev.rating - 1])
+						p.text-left #{rev.creation_time.toDateString()}
+						br
+						p #{rev.text}
+						p.text-right #{rev.name}
+					//- li #{rev.creation_time}
+					//- li #{rev.name}
+					//- li #{rev.text}
+					//- li #{rev.rating}

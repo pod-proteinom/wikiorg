@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const SchemaTypes = mongoose.Schema.Types;
 
-const rubricSchema = require('api/3-rubric').rubricSchema;
 const citySchema = require('api/1-city').citySchema;
+const rubricSchema = require('api/3-rubric').rubricSchema;
+const reviewSchema = require('api/5-review').reviewSchema;
 
 const categoriesList = require('modules/category-list');
 
@@ -23,7 +24,7 @@ const organisationSchema = new Schema({
 	},
 	rubrics: [rubricSchema],
 	// contact_groups
-	// reviews
+	reviews: [reviewSchema],
 	address_name: String,
 	address: {
 
