@@ -7,7 +7,9 @@ block body
 			- var orgPage = true
 			include /includes/urls
 
+			#MainMap(style="width:100%;height:400px;")
 			include /includes/bread-crumbs
+			
 			.col-md-8
 				.panel.panel-default
 					.panel-heading 
@@ -36,3 +38,5 @@ block body
 						each rubr in org.rubrics
 							if rubr.parent_id != null
 								li.list-group-item #{rubr.name}
+block map-script
+	include /includes/map

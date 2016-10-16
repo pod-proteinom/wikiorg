@@ -1,0 +1,11 @@
+script.
+	var lat = #{org.point.lat};
+	var lon = #{org.point.lon};
+	ymaps.ready(function () {
+		var MainMap = new ymaps.Map("MainMap", {
+			center: [lat, lon],
+			zoom: 10,
+			type: "yandex#map"
+		});
+		MainMap.controls.add("typeSelector").add("zoomControl");
+	});
