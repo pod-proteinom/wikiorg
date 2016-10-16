@@ -6,6 +6,7 @@ const SchemaTypes = mongoose.Schema.Types;
 const citySchema = require('api/1-city').citySchema;
 const rubricSchema = require('api/3-rubric').rubricSchema;
 const reviewSchema = require('api/5-review').reviewSchema;
+const scheduleSchema = require('./schedule');
 
 const categoriesList = require('modules/category-list');
 
@@ -17,7 +18,7 @@ const organisationSchema = new Schema({
 	},
 	type: {type: { type: String }},
 	city: citySchema,
-	// schedule
+	schedule: scheduleSchema,
 	name_ex: {
 		primary: String,
 		extension: String
