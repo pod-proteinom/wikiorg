@@ -12,7 +12,7 @@ block body
 			each rev in org.reviews
 				.col-md-6
 					if !rev.rating
-						rev.rating = 5
+						- rev.rating = 5
 					div(class=revClasses[rev.rating - 1])
 						p.text-left #{rev.creation_time.toDateString()}
 						br
